@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "parcel serve",
-    "watch": "parcel watch index.html",
+    "dev": "parcel serve index.html",
     "build": "parcel build"
   },
   "keywords": [],
@@ -13,9 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.0.1"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.9.4",
     "parcel": "^1.12.4"
   }
 }
