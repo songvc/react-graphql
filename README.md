@@ -1,17 +1,19 @@
 
-Microservices StockChart
+## StockChart Technology Stack
 
-Docker (and Docker Compose)
-React
-Node.js
-MySQL
-Sequelize
-Setup
+* Docker (and Docker Compose)
+* React
+* MySQL
+* Sequelize
+* Setup
 
 
-# setup the docker envrionment client react / microservices
-docker-compose up
+## setup the docker envrionment 
 
-# inside each project folder run the following
-npm install
-npm watch
+    docker-compose up
+
+## inside each project folder run the following
+
+    npm install
+
+    npm watch
