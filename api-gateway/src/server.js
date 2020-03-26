@@ -6,10 +6,12 @@ import cors from 'cors';
 import express from 'express';
 import resolvers from './graphql/resolvers';
 import typeDefs from './graphql/typeDefs';
+import formatGraphQLErrors from './formatGraphQLError';
 
 const PORT = 7000;
 
 const apolloServer = new ApolloServer({
+    formatError: formatGraphQLErrors,
     resolvers,
     typeDefs
 });
