@@ -1,0 +1,48 @@
+version: "3"
+services:
+    api-gateway: 
+        build: './api-gateway'
+        depends_on:
+            - stock-service
+            - user-service
+        ports:
+            - "7000:7000"
+        volumes:
+            - ./api-gateway:/opt/app
+
+    stock-service: 
+        build: './stock'
+        depends_on:
+            - stock-db
+        environment: 
+            - DB_URI=mysql://root:password@stock-db/db?charset=UTF8
+        ports:
+            - "7100:7100"
+        volumes:
+            - ./stock:/opt/app
+    stock-db: 
+        environment:
+            - MYSQL_ROOT_PASSWORD=password 
+            - MYSQL_DATABASE=db  
+        image: mysql:5.7.20
+        ports: 
+            - 0.0.0.0:7200:3306
+
+    user-service: 
+        build: './user'
+        depends_on:
+            - user-db
+        environment: 
+            - DB_URI=mysql://root:password@user-db/db?charset=UTF8
+        ports:
+            - "7101:7101"          
+        volumes:
+            - ./user:/opt/app
+
+    user-db: 
+        environment:
+            - MYSQL_ROOT_PASSWORD=password 
+            - MYSQL_DATABASE=db  
+        image: mysql:5.7.20
+        ports: 
+            - 0.0.0.0:7201:3306
