@@ -7,6 +7,7 @@ import express from 'express';
 import resolvers from './graphql/resolvers';
 import typeDefs from './graphql/typeDefs';
 import formatGraphQLErrors from './formatGraphQLError';
+import injectSession from './injectSession';
 
 const PORT = 7000;
 
@@ -27,6 +28,8 @@ app.use(
         credentials: true
     })
 );
+
+app.use(injectSession);
 
 apolloServer.applyMiddleware({ app, cors: false, path: "/graphql"});
 app.listen(PORT, "0.0.0.0", () => {

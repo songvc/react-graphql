@@ -16,6 +16,7 @@ const typeDefs = gql`
     
     type Query {
         stocks: [Stock!]!
+        userSession(me: Boolean!) : UserSession
     }
 
     type UserSession {
