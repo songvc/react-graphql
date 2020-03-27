@@ -11,9 +11,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apollo-cache-inmemory": "^1.6.5",
+    "apollo-client": "^2.6.8",
+    "apollo-link-http": "^1.5.16",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.0.1",
+    "subscriptions-transport-ws": "^0.9.16"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.9.4",
