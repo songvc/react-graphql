@@ -36,7 +36,10 @@ UserSessions.init({
     },
     userId: {
         allowNull: false,
-        unique: true,
+        references: {
+            key: "id",
+            model: "users"
+        },
         type: DataTypes.STRING
     },
     expiresAt: {

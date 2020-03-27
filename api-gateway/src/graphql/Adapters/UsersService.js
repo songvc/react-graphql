@@ -19,6 +19,7 @@ export default class UsersService {
 
     static async fetchUser({ userId }) {
         const body = await got.get(`${USERS_SERVICE_URI}/users/${userId}`).json();
+        console.log('sd', body);
         return body;
     }
 

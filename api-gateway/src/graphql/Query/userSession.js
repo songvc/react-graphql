@@ -5,3 +5,4 @@ const userSessionResolver = async (obj, args, context) => {
 }
 
 export default userSessionResolver;
+

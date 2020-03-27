@@ -1,10 +1,12 @@
 import _ from 'lodash';
 
 const formatGraphQLError = error => {
-    const errorDetaisl = _.get(error, "originalError,response.body");
+    const errorDetails = _.get(error, "originalError.response.body");
     try {
         if (errorDetails) return JSON.parse(errorDetails);
-    } catch(e) {}
+    } catch(e) {
+        return next(e)
+    }
 
     return error;
 }

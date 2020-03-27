@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { useMutation } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
+
+
+const Container = styled.div`
+    margin : 15px;
+`;
 
 const mutation = gql`
     mutation($email: String!, $password: String!) {
@@ -13,6 +19,8 @@ const mutation = gql`
         }
     }
 `;
+
+
 const Login = () => {
     const [ name, setName ] = useState('');
     const [ pw, setPW ] = useState('');
@@ -25,8 +33,6 @@ const Login = () => {
         setPW(e.target.value);
     }
     const handleSubmit = async () => {
-        console.log('f', name);
-        console.log('pw', pw);
         const result = await createUserSession({ 
             variables: { 
                 email: name, 
@@ -36,7 +42,7 @@ const Login = () => {
     }
 
 
-    return <div>
+    return <Container>
         <form onSubmit={handleSubmit}>
             <label>name</label>
             <input type='text' value={name} onChange={handleNameChange} />
@@ -44,7 +50,7 @@ const Login = () => {
             <input type='password' value={pw} onChange={handlePWChange} />
             <button>submit</button> 
         </form>
-    </div>
+    </Container>
 }
 
 export default Login;
