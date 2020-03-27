@@ -6,7 +6,8 @@
   "scripts": {
     "watch": "babel-watch -L ./server/start.js",
     "db:migrate": "sequelize db:migrate",
-    "db:migrate:undo": "sequelize db:migrate:undo"
+    "db:migrate:undo": "sequelize db:migrate:undo",
+    "db:migrate:undo:all": "sequelize db:migrate:undo:all"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "@babel/preset-env": "^7.9.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "date-fns": "^2.11.1",
     "express": "^4.17.1",
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.5",

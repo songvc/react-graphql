@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel serve index.html",
+    "start": "parcel index.html",
     "build": "parcel build"
   },
   "keywords": [],

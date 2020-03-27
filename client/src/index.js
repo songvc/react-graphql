@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createGlobalSTyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import App from './App';
 
 const GlobalStyle = createGlobalStyle`
@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 
-render(<><GlobalStyle>
+render(<div>
+        <GlobalStyle />
         <App/>
-    </GlobalStyle></>, document.getElementById('app'));
+    </div>, document.getElementById('app'));

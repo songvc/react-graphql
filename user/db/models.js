@@ -22,7 +22,7 @@ Users.init({
     defaultScope: {
         rawAttributes: { exclude : [ "passwordHash" ]}
     },
-    modelName: "user",
+    modelName: "users",
     sequelize
 }
 )
@@ -45,7 +45,7 @@ UserSessions.init({
     }
 },
 {
-    modelName: "userSession",
+    modelName: "userSessions",
     paranoid: false,
     sequelize,
     updatedAt: false
