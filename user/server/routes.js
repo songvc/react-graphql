@@ -22,9 +22,6 @@ const setupRoutes = (app) => {
             if (!user) return next(new Error('invalid emails!'));
 
             if (!bcrypt.compareSync(req.body.password, user.passwordHash)) {
-                console.log('r', req.body.password);
-                console.log('b', user.passwordHash);
-                console.log('true?', bcrypt.compareSync(req.body.password, user.passwordHash));
                 return next(new Error('incorrect password'));
             }
 

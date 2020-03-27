@@ -32,7 +32,9 @@ const Login = () => {
     const handlePWChange = (e) => {
         setPW(e.target.value);
     }
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
         const result = await createUserSession({ 
             variables: { 
                 email: name, 
@@ -43,6 +45,7 @@ const Login = () => {
 
 
     return <Container>
+        <div>Login</div>
         <form onSubmit={handleSubmit}>
             <label>name</label>
             <input type='text' value={name} onChange={handleNameChange} />

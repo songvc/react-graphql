@@ -2,7 +2,8 @@ import gql from 'graphql-tag';
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSession } from './store/session';
-import Login from './components/Login';
+import AccountDetails from './components/AccountDetails';
+import Signup from './components/Signup';
 import Header from './components/Header';
 import graphql from './graphql';
 
@@ -24,6 +25,7 @@ const App = () => {
     
     // useEffect(() => {
     //     graphql.query({ query }).then(({ data }) => {
+    //         console.log('dat', data);
     //         if (data.userSession) {
     //             dispatch(setSession(data.userSession));
     //         }
@@ -36,7 +38,8 @@ const App = () => {
     return <div>
         <div> 
             <Header />
-            <Login />
+            <Signup />
+            <AccountDetails />
         </div>
     </div>
 }

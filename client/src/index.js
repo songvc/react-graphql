@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: monospace;
     }
 `
+console.log('s', store);
 
 
 render(<Provider store={store}>
