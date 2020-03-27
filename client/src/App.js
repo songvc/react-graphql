@@ -23,17 +23,17 @@ const App = () => {
     const [initialized, setInitialized ] = useState(false);
     const dispatch = useDispatch();
     
-    // useEffect(() => {
-    //     graphql.query({ query }).then(({ data }) => {
-    //         console.log('dat', data);
-    //         if (data.userSession) {
-    //             dispatch(setSession(data.userSession));
-    //         }
-    //         setInitialized(true);
-    //     })
-    // }, []);
+    useEffect(() => {
+        graphql.query({ query }).then(({ data }) => {
+            console.log('ROOT data', data);
+            if (data.userSession) {
+                dispatch(setSession(data.userSession));
+            }
+            setInitialized(true);
+        })
+    }, []);
 
-    // if (!initialized) return 'loading...';
+    if (!initialized) return 'loading...';
 
     return <div>
         <div> 

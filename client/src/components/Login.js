@@ -34,13 +34,15 @@ const Login = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("LOGIN ", name);
+        console.log("LOGIN ", pw);
 
         const result = await createUserSession({ 
             variables: { 
                 email: name, 
                 password: pw }
         })
-        console.log('re', result);
+        console.log('LOGIN result', result);
     }
 
 

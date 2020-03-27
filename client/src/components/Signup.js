@@ -33,8 +33,8 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('submitting name', name);
-        console.log('submitting pw', pw);
+        console.log('SIGNUP submitting name', name);
+        console.log('SIGNUP submitting pw', pw);
         const result = await createUser({ 
             variables: { 
                 email: name, 
