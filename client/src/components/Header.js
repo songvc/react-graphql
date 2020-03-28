@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Searchbar from './Searchbar';
 
 const Container = styled.div`   
     display: flex;
@@ -44,6 +45,9 @@ const Header = () => {
         </Item>
         <Item>
             <Link to="/product">products</Link>
+        </Item>
+        <Item>
+            <Searchbar />
         </Item>
         <Filler>
 

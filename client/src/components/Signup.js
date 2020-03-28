@@ -8,6 +8,7 @@ const Frame = styled.div`
     display: flex;
     justify-content: center;
 `;
+
 const Container = styled.div`
     margin : 15px;
     display: flex;
@@ -19,15 +20,18 @@ const Container = styled.div`
     border: 1px solid black;
     border-radius: 5px;
 `;
+
 const Label = styled.label`
     display: block;
 `;  
+
 const Button = styled.button`
     display: block;
     :focus {
         outline: none;
     }
 `;
+
 const Input = styled.input`
     margin: 10px 0px;
     width: 200px;
