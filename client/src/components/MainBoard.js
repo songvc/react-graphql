@@ -35,7 +35,7 @@ const MainBoard = () => {
     const filtered = data.filter((data,i) => i < 50);
 
     return <Frame>
-        <Header>U.S. Stocks</Header>
+        <Header>Stock Market</Header>
             <Container>
                 {error && 'error!'}
                 {loading && 'loading'}
@@ -43,7 +43,7 @@ const MainBoard = () => {
                     return <StockTicker key={i} {...ticker} />
                 })}
             </Container>
-        <Header>Crypto</Header>
+        <Header>Cryptocurrency Market</Header>
             <Container>
                 {error && 'error!'}
                 {loading && 'loading'}
@@ -51,7 +51,7 @@ const MainBoard = () => {
                     return <StockTicker key={i} {...ticker} />
                 })}
             </Container>
-        <Header>Forex</Header>
+        <Header>Forex Market</Header>
             <Container>
                 {error && 'error!'}
                 {loading && 'loading'}

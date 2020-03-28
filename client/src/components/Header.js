@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Container = styled.div`   
     display: flex;
@@ -14,7 +15,7 @@ const Item = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 100px;
+    width: 200px;
     color: white;
     cursor: pointer;
     display: flex;
@@ -28,9 +29,15 @@ const Filler = styled.div`
 `
 
 const Header = () => {
+    const session = useSelector(state => state.session);
+    console.log('header', session);
+    if (session) {
+        console.log('header', session.user.email);
+    }
+
     return <Container>
         <Item>
-            <Link to="/">icon</Link>
+            <Link to="/">E.BIT.DA</Link>
         </Item>
         <Item>
             <Link to="/home">home</Link>
@@ -42,7 +49,7 @@ const Header = () => {
 
         </Filler>
         <Item>
-            <Link to="/login">login</Link>
+            <Link to="/login">{(session)? session.user.email : 'login'}</Link>
         </Item>
         <Item>
             <Link to="/signup">signup</Link>

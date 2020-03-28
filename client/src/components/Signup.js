@@ -3,11 +3,39 @@ import { useMutation } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import styled from 'styled-components';
 
-
+const Frame = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
 const Container = styled.div`
     margin : 15px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 0px;
+    border: 1px solid black;
+    border-radius: 5px;
 `;
-
+const Label = styled.label`
+    display: block;
+`;  
+const Button = styled.button`
+    display: block;
+    :focus {
+        outline: none;
+    }
+`;
+const Input = styled.input`
+    margin: 10px 0px;
+    width: 200px;
+    :focus {
+        outline: none;
+    }
+`;
 
 const mutation = gql`
     mutation($email: String!, $password: String!) {
@@ -44,18 +72,20 @@ const Signup = () => {
         console.log('result', result);
     }
 
-    return <Container>
-        <div>Sign Up</div>
-        <form onSubmit={handleSubmit}>
-            <label>name</label>
-            <input type='text' value={name} onChange={handleName}/> 
-            <label>pw</label>
-            <input type='text' value={pw} onChange={handlePW}/> 
-            <label>pwcheck</label>
-            <input type='text' value={pw} onChange={handlePW}/> 
-            <button>sign up</button>
-        </form>    
-    </Container>
+    return <Frame>
+        <Container>
+            <div>Sign Up</div>
+            <form onSubmit={handleSubmit}>
+                <Label>name</Label>
+                <Input type='text' value={name} onChange={handleName}/> 
+                <Label>pw</Label>
+                <Input type='text' value={pw} onChange={handlePW}/> 
+                <Label>pwcheck</Label>
+                <Input type='text' value={pw} onChange={handlePW}/> 
+                <Button>sign up</Button>
+            </form>    
+        </Container>
+    </Frame>
 }
 
 export default Signup;
