@@ -13,6 +13,11 @@ const Container = styled.div`
     padding: 15px;
     flex-wrap: wrap;
 `
+const Header = styled.h1`
+    border-bottom: 1px solid gray;
+    margin: 15px 35px;
+
+`;
 const BASEURL = "https://finnhub.io/api/v1";
 const TOKEN = "bpvblknrh5rf9gg9so5g"; 
 
@@ -23,15 +28,33 @@ const MainBoard = () => {
     }
     const { loading, error, data } = useFetch(BASEURL + `/stock/symbol?exchange=US&token=${TOKEN}`, options, []);
     console.log('dfg', data);
+    const filtered = data.filter((data,i) => i < 50);
 
     return <Frame>
-        <Container>
-        {error && 'error!'}
-        {loading && 'loading'}
-        {data.map((ticker,i) => {
-            return <StockTicker key={i} {...ticker} />
-        })}
-        </Container>
+        <Header>U.S. Stocks</Header>
+            <Container>
+                {error && 'error!'}
+                {loading && 'loading'}
+                {filtered.map((ticker,i) => {
+                    return <StockTicker key={i} {...ticker} />
+                })}
+            </Container>
+        <Header>Crypto</Header>
+            <Container>
+                {error && 'error!'}
+                {loading && 'loading'}
+                {filtered.map((ticker,i) => {
+                    return <StockTicker key={i} {...ticker} />
+                })}
+            </Container>
+        <Header>Forex</Header>
+            <Container>
+                {error && 'error!'}
+                {loading && 'loading'}
+                {filtered.map((ticker,i) => {
+                    return <StockTicker key={i} {...ticker} />
+                })}
+            </Container>
     </Frame>
 }
 
