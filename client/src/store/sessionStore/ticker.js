@@ -6,7 +6,7 @@ const DEFAULT_STATE = null;
 const tickerReducer = (state = DEFAULT_STATE, action = {}) => {
     switch (action.type) {
         case SET: 
-            return null;
+            return action.tickers;
         case CLEAR:
             return null;
     }
@@ -15,10 +15,10 @@ const tickerReducer = (state = DEFAULT_STATE, action = {}) => {
 
 export default tickerReducer;
 
-// export const setSession = session => {
-//     return { session, type: SET }
-// };
+export const setTickers = tickers => {
+    return { tickers, type: SET }
+};
 
-// export const clearSession = () => {
-//     return { type: CLEAR }
-// }
+export const clearTickers = () => {
+    return { type: CLEAR }
+}

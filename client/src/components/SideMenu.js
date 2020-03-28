@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     background-color: #222222;
-    width: 5%;
+    width: 100px;
+    height: 100%;
 `;
 const Items = styled.div`
     background-color: #222222;

@@ -21,10 +21,25 @@ import graphql from './graphql';
 import { useDispatch } from 'react-redux';
 import { setSession } from './store/sessionStore/session';
 
-const Body = styled.div`
-  display: flex;
-  flex-direction: row;
+const Container = styled.div`
   height: 100%;
+`;
+
+const Main = styled.div`    
+  display: flex;
+`;
+
+const Left = styled.div`
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+`
+
+const Right = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
 `;
 
 const query = gql`
@@ -54,25 +69,32 @@ const App = () => {
     }, []);
 
 
-    return <Router>
-            <Header />
-            <Body>
-                <SideMenu></SideMenu>
-                <Switch>
-                    <Route path ="/signup">
-                        <Signup />
-                    </Route>
-                    <Route path ="/login">
-                        <AccountDetails />
-                    </Route>
-                    <Route path ="/">
-                        <MainBoard />
-                    </Route>
-                    <Route path ="/main">
-                    </Route>
-                </Switch>
-            </Body>
-    </Router>
+    return <Container>
+            <Router>
+                <Header />
+                <Main>
+                    <Left>
+                        <SideMenu />                    
+                    </Left>
+                    <Right>
+                        <Switch>
+                            <Route path ="/signup">
+                                <Signup />
+                            </Route>
+                            <Route path ="/login">
+                                <AccountDetails />
+                            </Route>
+                            <Route path ="/">
+                                <MainBoard />
+                            </Route>
+                            <Route path ="/company">
+                                <Route path="/company/:company"/>
+                            </Route>
+                        </Switch>
+                    </Right>
+                </Main>
+        </Router>
+    </Container>
 }
 
 export default App;

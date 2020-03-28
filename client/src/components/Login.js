@@ -6,7 +6,7 @@ import { gql } from 'apollo-boost';
 
 const Container = styled.div`
     margin : 15px;
-    height: 100%;
+    height: 100vh;
 `;
 
 const mutation = gql`

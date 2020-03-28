@@ -4,7 +4,6 @@ import useFetch from 'use-http';
 import StockTicker from './StockTicker';
 
 const Frame = styled.div`
-    width: 100%;
 `;
 const Container = styled.div`
     display: flex;
@@ -12,6 +11,7 @@ const Container = styled.div`
     justify-content: space-between;
     padding: 15px;
     flex-wrap: wrap;
+    height: 550px;
 `
 const Header = styled.h1`
     border-bottom: 1px solid gray;
