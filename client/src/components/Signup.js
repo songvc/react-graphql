@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import styled from 'styled-components';
+import Button from './Button';
 
 const Frame = styled.div`
     height: 100vh;
@@ -25,27 +26,28 @@ const Label = styled.label`
     display: block;
 `;  
 
-const Button = styled.button`
-    display: inline-block;
-    margin: 0 .25em 0 0;
-    padding: .78571429em 1.5em .78571429em;
-    text-transform: none;
-    text-shadow: none;
-    font-weight: 700;
-    line-height: 1em;
-    font-style: normal;
-    text-align: center;
-    text-decoration: none;
-    border-radius: .28571429rem;
-    :focus {
-        outline: none;
-    }
-`;
+// const Button = styled.button`
+//     display: inline-block;
+//     margin: 0 .25em 0 0;
+//     padding: .78571429em 1.5em .78571429em;
+//     text-transform: none;
+//     text-shadow: none;
+//     font-weight: 700;
+//     line-height: 1em;
+//     font-style: normal;
+//     text-align: center;
+//     text-decoration: none;
+//     border-radius: .28571429rem;
+//     :focus {
+//         outline: none;
+//     }
+// `;
 
 const Input = styled.input`
     margin: 10px 0px;
     width: 200px;
     height: 30px;
+    display: block;
     :focus {
         outline: none;
     }
@@ -74,7 +76,7 @@ const Signup = () => {
         setPw(e.target.value); 
     } 
     const handlePWCheck = (e) => {
-        setPw(e.target.value); 
+        setPwcheck(e.target.value); 
     } 
 
     const handleSubmit = async (e) => {

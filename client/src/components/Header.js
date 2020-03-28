@@ -30,6 +30,10 @@ const Item = styled.div`
     }
 `;
 
+const Dropdown = styled.div`
+    display: block;
+`; 
+
 const Filler = styled.div`
     width: 80%;
 `

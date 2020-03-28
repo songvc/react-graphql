@@ -6,7 +6,20 @@ import { Tab, TabContainer } from './Tabs';
 
 const Frame = styled.div`
 `;
-const Container = styled.div`
+
+const ContainerByFour = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+    flex-wrap: wrap;
+`;
+
+const ContainerByFourItem = styled.div`
+    width: calc(100%/4);
+`; 
+
+const MarketContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -36,44 +49,118 @@ const MainBoard = () => {
     const filtered = data.filter((data,i) => i < 50);
 
     return <Frame>
-        <div>
-            <TabContainer>
-                <Tab>hello1</Tab>
-                <Tab>hello2</Tab>
-                <Tab>hello3</Tab>
-            </TabContainer>
-            <div>market info</div>
-            <div>market info</div>
-            <div>market info</div>
-            <div>market info</div>
-        </div>
-        <div>
-            advertisement
-        </div>
+        <ContainerByFour>
+            <ContainerByFourItem>
+                <TabContainer>
+                    <Tab title={'Asia'}>
+                        <div>
+                            hello1
+                        </div>
+                    </Tab>
+                    <Tab title={'US'}>
+                        <div>
+                            hello2
+                        </div>
+                    </Tab>
+                    <Tab title={'Europe'}>
+                        <div>
+                            hello3
+                        </div>
+                    </Tab>
+                    <Tab title={'FX'}>
+                        <div>
+                            hello3
+                        </div>
+                    </Tab>
+                    <Tab title={'Rates'}>
+                        <div>
+                            hello3
+                        </div>
+                    </Tab>
+                </TabContainer>
+            </ContainerByFourItem>
+            <ContainerByFourItem>
+                <TabContainer>
+                    <Tab title={'hello1'}>
+                        <div>
+                            hello1
+                        </div>
+                    </Tab>
+                    <Tab title={'hello2'}>
+                        <div>
+                            hello2
+                        </div>
+                    </Tab>
+                    <Tab title={'hello3'}>
+                        <div>
+                            hello3
+                        </div>
+                    </Tab>
+                </TabContainer>
+            </ContainerByFourItem>
+            <ContainerByFourItem>
+                <TabContainer>
+                    <Tab title={'hello1'}>
+                        <div>
+                            hello1
+                        </div>
+                    </Tab>
+                    <Tab title={'hello2'}>
+                        <div>
+                            hello2
+                        </div>
+                    </Tab>
+                    <Tab title={'hello3'}>
+                        <div>
+                            hello3
+                        </div>
+                    </Tab>
+                </TabContainer>
+            </ContainerByFourItem>
+            <ContainerByFourItem>
+                <TabContainer>
+                    <Tab title={'hello1'}>
+                        <div>
+                            hello1
+                        </div>
+                    </Tab>
+                    <Tab title={'hello2'}>
+                        <div>
+                            hello2
+                        </div>
+                    </Tab>
+                    <Tab title={'hello3'}>
+                        <div>
+                            hello3
+                        </div>
+                    </Tab>
+                </TabContainer>
+            </ContainerByFourItem>
+        </ContainerByFour>
         <Header>Stock Market</Header>
-            <Container>
+            <MarketContainer>
                 {error && 'error!'}
                 {loading && 'loading'}
                 {filtered.map((ticker,i) => {
                     return <StockTicker key={i} {...ticker} />
                 })}
-            </Container>
+            </MarketContainer>
         <Header>Cryptocurrency Market</Header>
-            <Container>
+            <MarketContainer>
                 {error && 'error!'}
                 {loading && 'loading'}
                 {filtered.map((ticker,i) => {
                     return <StockTicker key={i} {...ticker} />
                 })}
-            </Container>
+            </MarketContainer>
         <Header>Forex Market</Header>
-            <Container>
+            <MarketContainer>
                 {error && 'error!'}
                 {loading && 'loading'}
                 {filtered.map((ticker,i) => {
                     return <StockTicker key={i} {...ticker} />
                 })}
-            </Container>
+            </MarketContainer>
     </Frame>
 }
 
