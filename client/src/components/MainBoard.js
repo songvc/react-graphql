@@ -1,9 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const MainBoard = () => {
-    const session = useSelector(state => state.session);
     return <div>
-        logged in as {session.user.email} 
+        hello
     </div>
 }
 

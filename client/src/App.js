@@ -43,6 +43,7 @@ const App = () => {
 
     return <Router>
             <Header />
+            <MainBoard />
             <Switch>
                 <Route path ="/signup">
                     <Signup />
@@ -51,7 +52,6 @@ const App = () => {
                     <AccountDetails />
                 </Route>
                 <Route path ="/main">
-                    <MainBoard />
                 </Route>
             </Switch>
     </Router>

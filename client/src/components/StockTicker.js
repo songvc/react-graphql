@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-const Header = () => {
+const StockTicker = () => {
     return <div>
         
     </div>
 }
 
-export default Header;
+export default StockTicker;

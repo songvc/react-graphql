@@ -30,6 +30,10 @@ const typeDefs = gql`
         createUser(email: String!, password: String!): User!
         createUserSession(email: String!, password: String!): UserSession!
     }
+
+    type Subscription {
+        newLink: Link
+    }
 `;
 
 export default typeDefs;
