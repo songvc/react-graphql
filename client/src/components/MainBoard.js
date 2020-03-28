@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import useFetch from 'use-http';
 import StockTicker from './StockTicker';
+import { Tab, TabContainer } from './Tabs';
 
 const Frame = styled.div`
 `;
@@ -35,6 +36,20 @@ const MainBoard = () => {
     const filtered = data.filter((data,i) => i < 50);
 
     return <Frame>
+        <div>
+            <TabContainer>
+                <Tab>hello1</Tab>
+                <Tab>hello2</Tab>
+                <Tab>hello3</Tab>
+            </TabContainer>
+            <div>market info</div>
+            <div>market info</div>
+            <div>market info</div>
+            <div>market info</div>
+        </div>
+        <div>
+            advertisement
+        </div>
         <Header>Stock Market</Header>
             <Container>
                 {error && 'error!'}
