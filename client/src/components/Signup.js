@@ -6,7 +6,6 @@ import styled from 'styled-components';
 const Frame = styled.div`
     width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
 `;
 const Container = styled.div`
@@ -14,8 +13,8 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     width: 300px;
+    height: 300px;
     align-items: center;
-    justify-content: center;
     padding: 35px 0px;
     border: 1px solid black;
     border-radius: 5px;
@@ -32,6 +31,7 @@ const Button = styled.button`
 const Input = styled.input`
     margin: 10px 0px;
     width: 200px;
+    height: 30px;
     :focus {
         outline: none;
     }
@@ -49,6 +49,7 @@ const mutation = gql`
 const Signup = () => {
     const [ name, setName ] = useState('');
     const [ pw, setPw ] = useState('');
+    const [ pwcheck, setPwcheck ] = useState('');
     const [ createUser ] = useMutation(mutation);
 
     const handleName = (e) => {
@@ -56,6 +57,9 @@ const Signup = () => {
     }
 
     const handlePW = (e) => {
+        setPw(e.target.value); 
+    } 
+    const handlePWCheck = (e) => {
         setPw(e.target.value); 
     } 
 
@@ -81,7 +85,7 @@ const Signup = () => {
                 <Label>pw</Label>
                 <Input type='text' value={pw} onChange={handlePW}/> 
                 <Label>pwcheck</Label>
-                <Input type='text' value={pw} onChange={handlePW}/> 
+                <Input type='text' value={pwcheck} onChange={handlePWCheck}/> 
                 <Button>sign up</Button>
             </form>    
         </Container>

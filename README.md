@@ -1,12 +1,27 @@
 
 ## StockChart Technology Stack
 
+## Infrastructure / Docker Container
+
 * Docker (and Docker Compose)
-* React
+
+## Back-End Stacks 
+
 * MySQL
 * Sequelize
-* Setup
+* Express
 
+## Front-End Stacks
+
+* React 
+* Redux
+* Apollo Client
+
+## Middlelayer GraphQL Schema
+
+* User 
+* Stock
+* Third-party API Integration
 
 ## setup the docker envrionment 
 

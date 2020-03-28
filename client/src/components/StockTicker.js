@@ -9,6 +9,7 @@ const Container = styled.div`
     justify-content: space-between;
     border: 1px solid black;
     cursor: pointer;
+    border-radius: 5px;
 `
 const Symbol = styled.div`
     color: red;

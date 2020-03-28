@@ -14,6 +14,7 @@ const AccountDetails = () => {
     console.log('session',session);
     return <Frame>
         <Container>
+            <div>AccountDetails</div>
             <div>email: {session.user.email} </div>
             <div>id: {session.user.id}</div>
         </Container>
