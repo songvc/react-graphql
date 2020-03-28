@@ -17,11 +17,11 @@
 * Redux
 * Apollo Client
 
-## Middlelayer GraphQL Schema
+## Middlelayer GraphQL API GATEWay
 
-* User 
-* Stock
-* Third-party API Integration
+* User Service
+* Stock Service
+* Third-party API Integration (finn hub api, websocket via apollo integration)
 
 ## Setup the docker envrionment 
 
