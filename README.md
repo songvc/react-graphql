@@ -27,8 +27,10 @@
 
     docker-compose up
 
-## Inside each project folder run the following
+## Run Client side
+
+* Go to /client directory  
 
     npm install
 
-    npm watch
+    npm run server
