@@ -23,11 +23,11 @@
 * Stock
 * Third-party API Integration
 
-## setup the docker envrionment 
+## Setup the docker envrionment 
 
     docker-compose up
 
-## inside each project folder run the following
+## Inside each project folder run the following
 
     npm install
 
