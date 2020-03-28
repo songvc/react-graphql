@@ -9,13 +9,14 @@ const Frame = styled.div`
 const Container = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     padding: 15px;
     flex-wrap: wrap;
 `
 const Header = styled.h1`
     border-bottom: 1px solid gray;
-    margin: 15px 35px;
+    padding: 15px 0px;
+    margin: 0px 20px;
 
 `;
 const BASEURL = "https://finnhub.io/api/v1";
@@ -27,6 +28,9 @@ const MainBoard = () => {
         data: []
     }
     const { loading, error, data } = useFetch(BASEURL + `/stock/symbol?exchange=US&token=${TOKEN}`, options, []);
+    // const { loading, error, data } = useFetch(BASEURL + `/stock/symbol?exchange=US&token=${TOKEN}`, options, []);
+    // const { loading, error, data } = useFetch(BASEURL + `/stock/symbol?exchange=US&token=${TOKEN}`, options, []);
+
     console.log('dfg', data);
     const filtered = data.filter((data,i) => i < 50);
 

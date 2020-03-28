@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`   
     display: flex;
@@ -9,13 +10,14 @@ const Container = styled.div`
 `;
 
 const Item = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
     width: 100px;
     color: white;
     cursor: pointer;
     display: flex;
-    justify-content: center;
-    align-items: center;
     :hover {
         background-color: black;
     }
@@ -28,22 +30,22 @@ const Filler = styled.div`
 const Header = () => {
     return <Container>
         <Item>
-            icon
+            <Link to="/">icon</Link>
         </Item>
         <Item>
-            home
+            <Link to="/home">home</Link>
         </Item>
         <Item>
-            products
+            <Link to="/product">products</Link>
         </Item>
         <Filler>
 
         </Filler>
         <Item>
-            login
+            <Link to="/login">login</Link>
         </Item>
         <Item>
-            signup
+            <Link to="/signup">signup</Link>
         </Item>
     </Container>
 }

@@ -9,6 +9,9 @@ import { ApolloProvider } from 'react-apollo';
 import graphql from './graphql';
 
 const GlobalStyle = createGlobalStyle`
+    * {
+        box-sizing: border-box;
+    }
     html, body, #app {
         height: 100%;
         margin: 0;
@@ -18,6 +21,17 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: monospace;
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;    
     }
 `
 console.log('s', store);

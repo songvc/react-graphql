@@ -9,6 +9,7 @@ import {
   } from "react-router-dom";  
 import AccountDetails from './components/AccountDetails';
 import Signup from './components/Signup';
+import SideMenu from './components/SideMenu';
 import Header from './components/Header';
 import MainBoard from './components/MainBoard';
 
@@ -43,13 +44,16 @@ const App = () => {
 
     return <Router>
             <Header />
-            <MainBoard />
+            <SideMenu></SideMenu>
             <Switch>
                 <Route path ="/signup">
                     <Signup />
                 </Route>
                 <Route path ="/login">
                     <AccountDetails />
+                </Route>
+                <Route path ="/">
+                    <MainBoard />
                 </Route>
                 <Route path ="/main">
                 </Route>

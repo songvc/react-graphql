@@ -51,6 +51,8 @@ const Signup = () => {
             <input type='text' value={name} onChange={handleName}/> 
             <label>pw</label>
             <input type='text' value={pw} onChange={handlePW}/> 
+            <label>pwcheck</label>
+            <input type='text' value={pw} onChange={handlePW}/> 
             <button>sign up</button>
         </form>    
     </Container>
