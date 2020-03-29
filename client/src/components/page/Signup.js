@@ -21,8 +21,8 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     padding: 5px;
-    border: 1px solid black;
-    border-radius: 5px;
+    border-radius: .28571429rem;
+    border: 1px solid rgba(34,36,38,.15);
 `;
 
 const Label = styled.label`
@@ -137,17 +137,17 @@ const Signup = () => {
                 <Label>Email</Label>
                 <InputContainer>
                     <Input type='text' value={name} onChange={handleName}/> 
-                    {isNameValidated? <FontAwesomeIcon color={"green"} icon={faCheckCircle} size="sm" />: <div></div>}
+                    {isNameValidated? <FontAwesomeIcon color={"green"} icon={faCheckCircle} size="lg" />: <div></div>}
                 </InputContainer>
                 <Label>New Password</Label>
                 <InputContainer>
                     <Input type='text' value={pw} onChange={handlePW}/> 
-                    {isPWValidated? <FontAwesomeIcon color={"green"} icon={faCheckCircle} size="sm" />: <div></div>}
+                    {isPWValidated? <FontAwesomeIcon color={"green"} icon={faCheckCircle} size="lg" />: <div></div>}
                 </InputContainer>
                 <Label>New Password Check</Label>
                 <InputContainer>
                     <Input type='text' value={pwcheck} onChange={handlePWCheck}/> 
-                    {isPWValidated? <FontAwesomeIcon color={"green"} icon={faCheckCircle} size="sm" />: <div></div>}
+                    {isPWValidated? <FontAwesomeIcon color={"green"} icon={faCheckCircle} size="lg" />: <div></div>}
                 </InputContainer>
                 <Button disabled={disabled}>Sign Up</Button>
                 <Button onClick={handleCancel}>Cancel</Button>

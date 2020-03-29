@@ -14,8 +14,9 @@ const Container = styled.div`
     justify-content: space-between;
     border: 1px solid black;
     cursor: pointer;
-    border-radius: 5px;
-`
+    border-radius: .28571429rem;
+    border: 1px solid rgba(34,36,38,.15);
+`;
 const Symbol = styled.div`
     color: #5f5dff;
 `;

@@ -1,5 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+// border-radius: .28571429rem;
+// border: 1px solid rgba(34,36,38,.15);
+
 
 const Buttons = styled.button`
     display: inline-block;
@@ -13,6 +16,7 @@ const Buttons = styled.button`
     text-align: center;
     text-decoration: none;
     border-radius: .28571429rem;
+    border: 1px solid rgba(34,36,38,.15);
     cursor: pointer;
     :focus {
         outline: none;

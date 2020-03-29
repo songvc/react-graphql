@@ -65,108 +65,106 @@ const CompanyDetails = (props) => {
     }
     const url = pathname.split('/')[2]; 
     
-    // const { loading, error, data } = useFetch(BASEURL + `/stock/profile?symbol=${url}&token=${TOKEN}`, options, [url]);
-    // return data;
 
     const getProfile = async () => {
         const profile = await request.get(`/stock/profile?symbol=${url}&token=${TOKEN}`);
-        console.log('f', profile);
+        console.log('profile', profile);
         setProfileData(profile);
     }
 
     const getRec = async () => {
         const rec = await request.get(`/stock/recommendation?symbol=${url}&token=${TOKEN}`);
-        console.log('f', profile);
+        console.log('rec', profile);
         setRecData(rec);
     }
  
     const getPriceTarget = async () => {
         const priceTarget = await request.get(`/stock/price-target?symbol=${url}&token=${TOKEN}`);
-        console.log('f', priceTarget);
+        console.log('pricetarget', priceTarget);
         setPriceTargetData(priceTarget);
     }
 
     const getRating = async () => {
         const rating = await request.get(`/stock/upgrade-downgrade?symbol=${url}&token=${TOKEN}`);
-        console.log('f', rating);
+        console.log('rating', rating);
         setRatingData(rating);
     }
 
     const getOption = async () => {
         const option = await request.get(`/stock/option-chain?symbol=${url}&token=${TOKEN}`);
-        console.log('f', option);
+        console.log('option', option);
         setOptionData(option);
     }
 
     const getPeer = async () => {
         const peers = await request.get(`/stock/peers?symbol=${url}&token=${TOKEN}`);
-        console.log('f', peers);
+        console.log('peer', peers);
         setPeerData(peers);
     }
 
     const getRevenue = async () => {
         const revenue = await request.get(`/stock/revenue-estimate?symbol=${url}&token=${TOKEN}`);
-        console.log('f', revenue);
+        console.log('revenue', revenue);
         setRevenueData(revenue);
     }
 
     const getEarning = async () => {
         const earning = await request.get(`/stock/eps-estimate?symbol=${url}&token=${TOKEN}`);
-        console.log('f', earning);
+        console.log('earning', earning);
         setEarningData(earning);
     }
 
     const getMetrics = async () => {
         // more metrics
-        const metrics = await request.get(`/stock/metric?symbol=${url}&token=${TOKEN}`);
-        console.log('f', metrics);
+        const metrics = await request.get(`/stock/metric?symbol=${url}&token=${TOKEN}&metric=price`);
+        console.log('metrics', metrics);
         setMetricData(metrics);
     }
 
     const getInvestors = async () => {
         // more metrics
         const investors = await request.get(`/stock/investor-ownership?symbol=${url}&token=${TOKEN}`);
-        console.log('f', investors);
+        console.log('investor', investors);
         setInvestorData(investors);
     }
 
     const getOwnership = async () => {
         // more metrics
         const ownership = await request.get(`/stock/fund-ownership?symbol=${url}&token=${TOKEN}`);
-        console.log('f', ownership);
+        console.log('ownership', ownership);
         setOwnershipData(ownership);
     }
 
     const getFT = async () => {
         // more metrics
         const ft = await request.get(`/stock/financials?symbol=${url}&token=${TOKEN}&statement=bs&freq=annual`);
-        console.log('f', ft);
+        console.log('ft', ft);
         setFTData(ft);
     }
 
     const getQuote = async () => {
         // more metrics
         const quote = await request.get(`/quote?symbol=${url}&token=${TOKEN}`);
-        console.log('f', quote);
+        console.log('quote', quote);
         setQuoteData(quote);
     }
 
     const getCandle = async () => {
         // more metrics
         const candle = await request.get(`/stock/candle?symbol=${url}&token=${TOKEN}&resolution=1&from=1572651390&to=1572910590`);
-        console.log('f', candle);
+        console.log('candle', candle);
         setCandleData(candle);
     }
 
     const getDividend = async () => {
         const dividend = await request.get(`/stock/dividend?symbol=${url}&token=${TOKEN}&from=2019-02-01&to=2020-02-01`);
-        console.log('f', dividend);
+        console.log('dividend', dividend);
         setDividendData(dividend);
     }
 
     const getSplit = async () => {
         const splits = await request.get(`/stock/split?symbol=${url}&token=${TOKEN}&from=2019-02-01&to=2020-02-01`);
-        console.log('f', splits);
+        console.log('split', splits);
         setSplitData(splits);
     }
 
@@ -189,12 +187,12 @@ const CompanyDetails = (props) => {
         getSplit();
     }, [url]);
 
-    console.log('profileData', profileData);
+    // console.log('profileData', profileData);
 
     return <Container>
         <Row>
             <LayoutOneByFour>
-                <div>{profileData.name} ({url})</div>
+                <div>{profileData && profileData.name} ({url && url})</div>
             </LayoutOneByFour>
             <LayoutThreeByFour>
                 <div>General Information</div>
@@ -202,19 +200,19 @@ const CompanyDetails = (props) => {
         </Row>
         <Row>
             <LayoutOneByFour border>
-                <div>{profileData.description}</div>
-                <div>{profileData.currency} ${profileData.marketCapitalization}</div>
-                <div>{profileData.currency} ${profileData.shareOutstanding}</div>
+                <div>{profileData && profileData.description}</div>
+                <div>{profileData && profileData.currency} ${profileData && profileData.marketCapitalization}</div>
+                <div>{profileData && profileData.currency} ${profileData && profileData.shareOutstanding}</div>
             </LayoutOneByFour>
             <LayoutThreeByFour border>
-                <div>{profileData.address}</div>
-                <div>{profileData.city}, {profileData.state}</div>
-                <div>{profileData.country}</div>
-                <div>{profileData.phone}</div>
-                <div>{profileData.cusip}</div>
-                <div>{profileData.gsector}</div>
-                <div>{profileData.gsubind}</div>
-                <div>{profileData.isin}</div>
+                <div>{profileData && profileData.address}</div>
+                <div>{profileData && profileData.city}, {profileData && profileData.state}</div>
+                <div>{profileData && profileData.country}</div>
+                <div>{profileData && profileData.phone}</div>
+                <div>{profileData && profileData.cusip}</div>
+                <div>{profileData && profileData.gsector}</div>
+                <div>{profileData && profileData.gsubind}</div>
+                <div>{profileData && profileData.isin}</div>
             </LayoutThreeByFour>
         </Row>
         <TabContainer>

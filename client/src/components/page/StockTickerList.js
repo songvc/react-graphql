@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {
     Route, Switch
@@ -20,8 +20,8 @@ const Row = styled.div`
     flex-wrap: wrap;
 `;
 
-const LayoutByFour = styled.div`
-    width: calc(100%/4);
+const LayoutByThree = styled.div`
+    width: calc(100%/3);
 `; 
 
 const MarketContainer = styled.div`
@@ -37,19 +37,52 @@ const TOKEN = "bpvblknrh5rf9gg9so5g";
 
 
 const StockTickerList = () => {
-    const options = {
-        data: []
-    }
-    const { loading, error, data } = useFetch(BASEURL + `/stock/symbol?exchange=US&token=${TOKEN}`, options, []);
+
+    const [ stockExchange, setStockExchange ] = useState([]);
+    const [ forexExchange, setForexExchange ] = useState([]);
+    const [ cryptoExchange, setCryptoExchange ] = useState([]);
+
+    // const options = {
+    //     data: []
+    // }
+    const { request, response } = useFetch(BASEURL);
     // const { loading, error, data } = useFetch(BASEURL + `/stock/symbol?exchange=US&token=${TOKEN}`, options, []);
     // const { loading, error, data } = useFetch(BASEURL + `/stock/symbol?exchange=US&token=${TOKEN}`, options, []);
 
-    console.log('dfg', data);
-    const filtered = data.filter((data,i) => i < 30);
+    // console.log('dfg', data);
+    // const filtered = data.filter((data,i) => i < 30);
+
+    const getStockExchange = async () => {
+        const stocks = await request.get(`/stock/exchange&token=${TOKEN}`);
+        console.log('profile', stocks);
+        setStockExchange(stocks);
+    }
+
+    const getForexExchange = async () => {
+        const forex = await request.get(`/forex/exchange&token=${TOKEN}`);
+        console.log('rec', profile);
+        setForexExchange(forex);
+    }
+ 
+    const getCryptoExchange = async () => {
+        const cryptos = await request.get(`/crypto/price-target&token=${TOKEN}`);
+        console.log('pricetarget', priceTarget);
+        setCryptoExchange(cryptos);
+    }
+
+    useEffect(() => {
+        getStockExchange();
+        getForexExchange();
+        getCryptoExchange();
+    },[]);
+
+    console.log('stocks', stockExchange);
+    console.log('forex', forexExchange);
+    console.log('cryptos', cryptoExchange);
 
     return <Frame>
         <Row>
-            <LayoutByFour>
+            <LayoutByThree>
                 <TabContainer>
                     <Tab title={'Asia'}>
                         <div>
@@ -77,8 +110,8 @@ const StockTickerList = () => {
                         </div>
                     </Tab>
                 </TabContainer>
-            </LayoutByFour>
-            <LayoutByFour>
+            </LayoutByThree>
+            <LayoutByThree>
                 <TabContainer>
                     <Tab title={'hello1'}>
                         <div>
@@ -96,8 +129,8 @@ const StockTickerList = () => {
                         </div>
                     </Tab>
                 </TabContainer>
-            </LayoutByFour>
-            <LayoutByFour>
+            </LayoutByThree>
+            <LayoutByThree>
                 <TabContainer>
                     <Tab title={'hello1'}>
                         <div>
@@ -115,50 +148,31 @@ const StockTickerList = () => {
                         </div>
                     </Tab>
                 </TabContainer>
-            </LayoutByFour>
-            <LayoutByFour>
-                <TabContainer>
-                    <Tab title={'hello1'}>
-                        <div>
-                            hello1
-                        </div>
-                    </Tab>
-                    <Tab title={'hello2'}>
-                        <div>
-                            hello2
-                        </div>
-                    </Tab>
-                    <Tab title={'hello3'}>
-                        <div>
-                            hello3
-                        </div>
-                    </Tab>
-                </TabContainer>
-            </LayoutByFour>
+            </LayoutByThree>
         </Row>
         <HeadingOne>Stock Market</HeadingOne>
             <MarketContainer>
-                {error && 'error!'}
+                {/* {error && 'error!'}
                 {loading && 'loading'}
                 {filtered.map((ticker,i) => {
                     return <StockTicker key={i} {...ticker} />
-                })}
+                })} */}
             </MarketContainer>
         <HeadingOne>Cryptocurrency Market</HeadingOne>
             <MarketContainer>
-                {error && 'error!'}
+                {/* {error && 'error!'}
                 {loading && 'loading'}
                 {filtered.map((ticker,i) => {
                     return <StockTicker key={i} {...ticker} />
-                })}
+                })} */}
             </MarketContainer>
         <HeadingOne>Forex Market</HeadingOne>
             <MarketContainer>
-                {error && 'error!'}
+                {/* {error && 'error!'}
                 {loading && 'loading'}
                 {filtered.map((ticker,i) => {
                     return <StockTicker key={i} {...ticker} />
-                })}
+                })} */}
             </MarketContainer>
     </Frame>
 }
