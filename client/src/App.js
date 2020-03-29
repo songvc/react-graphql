@@ -15,6 +15,7 @@ import Signup from './components/Signup';
 import SideMenu from './components/SideMenu';
 import Header from './components/Header';
 import MainBoard from './components/MainBoard';
+import CompanyDetails from './components/CompanyDetails';
 
 // initial query
 import graphql from './graphql';
@@ -31,15 +32,16 @@ const Main = styled.div`
 
 const Left = styled.div`
   display: flex;
-  flex-shrink: 0;
+  flex-basis: 10%;
   flex-direction: column;
+  flex-grow: 1;
 `
 
 const Right = styled.div`
   display: flex;
+  flex-basis: 90%;
   flex-direction: column;
-  height: 100%;
-
+  flex-grow: 1;
 `;
 
 const query = gql`
@@ -88,7 +90,7 @@ const App = () => {
                                 <MainBoard />
                             </Route>
                             <Route path ="/company">
-                                <Route path="/company/:company"/>
+                                <Route path="/company/:company" component={CompanyDetails} />
                             </Route>
                         </Switch>
                     </Right>

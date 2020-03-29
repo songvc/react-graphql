@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useRouter } from '../Hooks/useRouter';
 
 const Container = styled.div`
     width: 200px;
@@ -16,7 +17,8 @@ const Symbol = styled.div`
 `;
 
 const StockTicker = ({ description, displaySymbol, symbol }) => {
-    return <Container>
+    const router = useRouter();
+    return <Container onClick={() => router.push(`/company/${symbol}`)}>
         <div>{description}</div>
         <Symbol>{displaySymbol}</Symbol>
     </Container>

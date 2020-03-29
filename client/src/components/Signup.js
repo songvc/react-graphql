@@ -3,11 +3,11 @@ import { useMutation } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import styled from 'styled-components';
 import Button from './Button';
+import Input from './Input';
 
 const Frame = styled.div`
+    margin: 15px;
     height: 100vh;
-    display: flex;
-    justify-content: center;
 `;
 
 const Container = styled.div`
@@ -17,7 +17,8 @@ const Container = styled.div`
     width: 300px;
     height: 300px;
     align-items: center;
-    padding: 35px 0px;
+    justify-content: center;
+    padding: 5px;
     border: 1px solid black;
     border-radius: 5px;
 `;
@@ -26,32 +27,15 @@ const Label = styled.label`
     display: block;
 `;  
 
-// const Button = styled.button`
-//     display: inline-block;
-//     margin: 0 .25em 0 0;
-//     padding: .78571429em 1.5em .78571429em;
-//     text-transform: none;
-//     text-shadow: none;
-//     font-weight: 700;
-//     line-height: 1em;
-//     font-style: normal;
-//     text-align: center;
-//     text-decoration: none;
-//     border-radius: .28571429rem;
+// const Input = styled.input`
+//     margin: 10px 0px;
+//     width: 200px;
+//     height: 30px;
+//     display: block;
 //     :focus {
 //         outline: none;
 //     }
 // `;
-
-const Input = styled.input`
-    margin: 10px 0px;
-    width: 200px;
-    height: 30px;
-    display: block;
-    :focus {
-        outline: none;
-    }
-`;
 
 const mutation = gql`
     mutation($email: String!, $password: String!) {
@@ -96,13 +80,14 @@ const Signup = () => {
         <Container>
             <div>Sign Up</div>
             <form onSubmit={handleSubmit}>
-                <Label>name</Label>
+                <Label>Email</Label>
                 <Input type='text' value={name} onChange={handleName}/> 
-                <Label>pw</Label>
+                <Label>New Password</Label>
                 <Input type='text' value={pw} onChange={handlePW}/> 
-                <Label>pwcheck</Label>
+                <Label>New Password Check</Label>
                 <Input type='text' value={pwcheck} onChange={handlePWCheck}/> 
-                <Button>sign up</Button>
+                <Button>Sign Up</Button>
+                <Button>Cancel</Button>
             </form>    
         </Container>
     </Frame>

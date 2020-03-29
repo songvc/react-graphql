@@ -15,19 +15,17 @@ const Container = styled.div`
 
 const Item = styled.div`
     display: flex;
+    padding: 10px;
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 200px;
     color: white;
     cursor: pointer;
     display: flex;
     :hover {
         background-color: black;
     }
-    :nth-child(4n+4) {
-        
-    }
+
 `;
 
 const Dropdown = styled.div`
@@ -35,7 +33,7 @@ const Dropdown = styled.div`
 `; 
 
 const Filler = styled.div`
-    width: 80%;
+    flex-grow: 1;
 `
 
 const Header = () => {
@@ -50,10 +48,10 @@ const Header = () => {
             <Link to="/">E.BIT.DA</Link>
         </Item>
         <Item>
-            <Link to="/home">home</Link>
+            <Link to="/home">Home</Link>
         </Item>
         <Item>
-            <Link to="/product">products</Link>
+            <Link to="/product">Products</Link>
         </Item>
         <Item>
             <Searchbar />
@@ -62,13 +60,13 @@ const Header = () => {
 
         </Filler>
         <Item>
-            <FontAwesomeIcon icon={faBell} size="xs" />
+            <FontAwesomeIcon icon={faBell} size="lg" />
         </Item>
         <Item>
-            <Link to="/login">{(session)? session.user.email : 'login'}</Link>
+            <Link to="/login">{(session)? session.user.email : 'Login'}</Link>
         </Item>
         <Item>
-            <Link to="/signup">signup</Link>
+            <Link to="/signup">Signup</Link>
         </Item>
     </Container>
 }

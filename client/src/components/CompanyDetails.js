@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const AccountDetails = () => {
-    
+const CompanyDetails = ({ props }) => {
+    console.log('f', props);
     return <div>
-        
+
     </div>
 }
 
-export default AccountDetails;
+export default CompanyDetails;

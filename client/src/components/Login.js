@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useMutation } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
+import Input from './Input';
+import Button from './Button';
 
-
-const Container = styled.div`
-    margin : 15px;
+const Frame = styled.div`
+    margin: 15px;
     height: 100vh;
 `;
+
+const Label = styled.label`
+    display: block;
+`; 
 
 const mutation = gql`
     mutation($email: String!, $password: String!) {
@@ -47,16 +52,17 @@ const Login = () => {
     }
 
 
-    return <Container>
+    return <Frame>
         <div>Login</div>
+        <div></div>
         <form onSubmit={handleSubmit}>
-            <label>name</label>
-            <input type='text' value={name} onChange={handleNameChange} />
-            <label>pw</label>
-            <input type='password' value={pw} onChange={handlePWChange} />
-            <button>submit</button> 
+            <Label>Email</Label>
+            <Input type='text' value={name} onChange={handleNameChange} />
+            <Label>Password</Label>
+            <Input type='password' value={pw} onChange={handlePWChange} />
+            <Button>Submit</Button> 
         </form>
-    </Container>
+    </Frame>
 }
 
 export default Login;

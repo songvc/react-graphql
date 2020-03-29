@@ -3,8 +3,15 @@ import styled from 'styled-components';
 import useFetch from 'use-http';
 import StockTicker from './StockTicker';
 import { Tab, TabContainer } from './Tabs';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+  } from "react-router-dom";  
 
+  
 const Frame = styled.div`
+    height: 100%;
 `;
 
 const ContainerByFour = styled.div`

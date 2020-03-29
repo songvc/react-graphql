@@ -13,6 +13,7 @@ const Buttons = styled.button`
     text-align: center;
     text-decoration: none;
     border-radius: .28571429rem;
+    cursor: pointer;
     :focus {
         outline: none;
     }
