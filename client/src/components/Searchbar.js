@@ -1,15 +1,27 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Button from './Button';
 
+const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+`; 
 const Input = styled.input`
     display: block;
+    width: 150px;
+    height: 30px;
     border: 1px solid rgba(34,36,38,.15);
+    margin-right: 5px;
     color: rgba(0,0,0,.87);
-    border-radius: 10rem;
+    border-radius: .28571429rem;
     :focus {
         outline: none;
     }
 `;
+// const Buttons = styled(Button)`
+//     height: 25px;
+// `;
+// border-radius: 1rem;
 
 const Searchbar = () => {
     const [ searchTerm, setSearchTerm ] = useState('');
@@ -17,9 +29,10 @@ const Searchbar = () => {
         setSearchTerm(e.target.value);
     }
 
-    return <div>
-        <Input type='text' value={searchTerm} onChange={handleChange}/>
-    </div>
+    return <Container>
+        <Input type='text' placeholder='Search for Ticker Symbol'value={searchTerm} onChange={handleChange}/>
+        <Button>Search</Button>
+    </Container>
 }
 
 export default Searchbar;

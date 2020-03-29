@@ -11,18 +11,18 @@ import {
 
 // components
 import AccountDetails from './components/AccountDetails';
-import Signup from './components/Signup';
+import Signup from './components/page/Signup';
 import SideMenu from './components/SideMenu';
 import Header from './components/Header';
-import MainBoard from './components/StockTickerList';
-import CompanyDetailsList from './components/CompanyDetailsList';
+import MainBoard from './components/page/StockTickerList';
+import CompanyDetailsList from './components/page/CompanyDetailsList';
 import CompanyDetails from './components/CompanyDetails';
 
 // initial query
 import graphql from './graphql';
 import { useDispatch } from 'react-redux';
 import { setSession } from './store/sessionStore/session';
-import StockTickerList from './components/StockTickerList';
+import StockTickerList from './components/page/StockTickerList';
 
 const Container = styled.div`
   display: flex;

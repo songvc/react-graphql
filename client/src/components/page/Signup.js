@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import styled from 'styled-components';
-import Button from './Button';
-import Input from './Input';
+import Button from '../Button';
+import Input from '../Input';
+import { checkDocument } from 'apollo-utilities';
+import { faShekelSign } from '@fortawesome/free-solid-svg-icons';
 
 const Frame = styled.div`
     margin: 15px;
@@ -50,16 +52,44 @@ const Signup = () => {
     const [ name, setName ] = useState('');
     const [ pw, setPw ] = useState('');
     const [ pwcheck, setPwcheck ] = useState('');
+    const [ disabled, setDisabled] = useState(true);
     const [ createUser ] = useMutation(mutation);
 
+    const emailValidation = () => {
+        return true;
+    }
+
+    const pwValidation = () => {
+        if (pwcheck.length > 0 && pw.length > 0 && pwcheck === pw) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    const checkValidation = () => {
+        console.log('checking validation');
+        if (emailValidation() && pwValidation()) {
+            setDisabled(false);
+        }
+    }
+
     const handleName = (e) => {
+        console.log('fe');
+        console.log('e', e.target.value);
+        checkValidation();
         setName(e.target.value);    
     }
 
     const handlePW = (e) => {
+        console.log('fe');
+        checkValidation();
         setPw(e.target.value); 
     } 
+
     const handlePWCheck = (e) => {
+        console.log('fe');
+        checkValidation();
         setPwcheck(e.target.value); 
     } 
 
@@ -67,13 +97,23 @@ const Signup = () => {
         e.preventDefault();
         console.log('SIGNUP submitting name', name);
         console.log('SIGNUP submitting pw', pw);
-        const result = await createUser({ 
-            variables: { 
-                email: name, 
-                password: pw 
-            }
-        })
+        try {
+            const result = await createUser({ 
+                variables: { 
+                    email: name, 
+                    password: pw 
+                }
+            })
+        } catch(error) {
+            console.log('error', error);
+        }
         console.log('result', result);
+    }
+
+    const handleCancel = () => {
+        setName('');
+        setPw('');
+        setPwcheck('');
     }
 
     return <Frame>
@@ -86,8 +126,8 @@ const Signup = () => {
                 <Input type='text' value={pw} onChange={handlePW}/> 
                 <Label>New Password Check</Label>
                 <Input type='text' value={pwcheck} onChange={handlePWCheck}/> 
-                <Button>Sign Up</Button>
-                <Button>Cancel</Button>
+                <Button disabled={disabled}>Sign Up</Button>
+                <Button onClick={handleCancel}>Cancel</Button>
             </form>    
         </Container>
     </Frame>

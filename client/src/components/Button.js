@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Buttons = styled.button`
     display: inline-block;
@@ -21,10 +21,21 @@ const Buttons = styled.button`
         background-color: black;
         color: white;
     }
+    ${props => props.disabled && css`
+        :disabled {
+            background-color: #aaa;
+            color: white;
+            border: 1px solid grey;            
+        }
+        :disabled:hover {
+            cursor: not-allowed;
+        }
+    `}
 `;
 
-const Button = ({children}) => {
-    return <Buttons>{children}</Buttons>
+const Button = ({ children, disabled }) => {
+    // console.log('props button cihldren', children);
+    return <Buttons disabled={disabled}>{children}</Buttons>
 }
 
 export default Button;

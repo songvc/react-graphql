@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Login from './Login';
+import Login from './page/Login';
 import Account from './Account';
 
 const AccountDetails = () => {

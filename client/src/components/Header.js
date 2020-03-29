@@ -4,18 +4,21 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Searchbar from './Searchbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell } from '@fortawesome/free-solid-svg-icons'
+import { faBell, faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { useRouter } from '../Hooks/useRouter';
 
 const Container = styled.div`   
     display: flex;
     flex-display: row;
     background-color: #5f5dff;
-    height: 40px;
+    height: 50px;
 `;
 
 const Item = styled.div`
-    display: block;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
     height: 100%;
     color: white;
@@ -26,13 +29,25 @@ const Item = styled.div`
 
 `;
 
+const Red = styled.div`
+    position: absolute;
+    height: 5px;
+    width: 5px; 
+    border-radius: 50%; 
+    background-color: red;
+    top: 12.5px;
+    right: 10px;
+    
+`; 
+
 const Dropdown = styled.div`
     display: block;
 `; 
 
 const Filler = styled.div`
     flex-grow: 1;
-`
+`;
+
 
 const Header = () => {
     const session = useSelector(state => state.session);
@@ -44,14 +59,17 @@ const Header = () => {
 
     return <Container>
         <Item>
-            <div onClick={() => router.push("/")}>E.BIT.DA</div>
+            {/* <div>
+                <FontAwesomeIcon icon={faGlobe} size="lg" />
+            </div> */}
+            <div onClick={() => router.push("/home")}>E.BIT.DA</div>
         </Item>
-        <Item>
+        {/* <Item>
             <div onClick={() => router.push("/home")}>Home</div>
         </Item>
         <Item>
             <div onClick={() => router.push("/product")}>Products</div>
-        </Item>
+        </Item> */}
         <Item>
             <Searchbar />
         </Item>
@@ -59,13 +77,14 @@ const Header = () => {
 
         </Filler>
         <Item>
+            <Red />
             <FontAwesomeIcon icon={faBell} size="lg" />
         </Item>
         <Item>
             <div onClick={() => router.push("/login")}>{(session)? session.user.email : 'Login'}</div>
         </Item>
         <Item>
-            <div onClick={() => router.push("/signup")}>Signup</div>
+            <div onClick={() => router.push("/signup")}>Sign up</div>
         </Item>
     </Container>
 }

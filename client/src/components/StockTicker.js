@@ -4,7 +4,7 @@ import { useRouter } from '../Hooks/useRouter';
 import {
     Route, Switch, Link
   } from "react-router-dom";  
-import CompanyDetails from './CompanyDetails';
+// import CompanyDetails from './CompanyDetails';
 
 const Container = styled.div`
     width: 200px;

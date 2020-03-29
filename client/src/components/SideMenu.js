@@ -31,31 +31,31 @@ const SideMenu = () => {
     return <Container>
         <Items>
             <IconContainer>
-                <FontAwesomeIcon icon={faHome} size="md" />
+                <FontAwesomeIcon icon={faHome} size="sm" />
             </IconContainer>
             <div>Home</div>
         </Items>
         <Items>
             <IconContainer>
-                <FontAwesomeIcon icon={faNewspaper} size="md" />    
+                <FontAwesomeIcon icon={faNewspaper} size="sm" />    
             </IconContainer>
             <div>News</div>
         </Items>
         <Items>
             <IconContainer>
-                <FontAwesomeIcon icon={faWallet} size="md" />    
+                <FontAwesomeIcon icon={faWallet} size="sm" />    
             </IconContainer>
             <div>Watch</div>
         </Items>
         <Items>
             <IconContainer>
-                <FontAwesomeIcon icon={faStore} size="md" />    
+                <FontAwesomeIcon icon={faStore} size="sm" />    
             </IconContainer>
             <div>Store</div>
         </Items>
         <Items>
             <IconContainer>
-                <FontAwesomeIcon icon={faComments} size="md" />    
+                <FontAwesomeIcon icon={faComments} size="sm" />    
             </IconContainer>
             <div>Forum</div>
         </Items>

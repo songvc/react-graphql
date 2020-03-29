@@ -4,14 +4,15 @@ import {
     Route, Switch
   } from "react-router-dom";  
 import useFetch from 'use-http';
-import StockTicker from './StockTicker';
-import { Tab, TabContainer } from './Tabs';
+import StockTicker from '../StockTicker';
+import { Tab, TabContainer } from '../Tabs';
+import { HeadingOne } from '../Headings';
 
 const Frame = styled.div`
     height: 100%;
 `;
 
-const ContainerByFour = styled.div`
+const Row = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -19,7 +20,7 @@ const ContainerByFour = styled.div`
     flex-wrap: wrap;
 `;
 
-const ContainerByFourItem = styled.div`
+const LayoutByFour = styled.div`
     width: calc(100%/4);
 `; 
 
@@ -31,12 +32,6 @@ const MarketContainer = styled.div`
     flex-wrap: wrap;
     height: 550px;
 `
-const Header = styled.h1`
-    border-bottom: 1px solid gray;
-    padding: 15px 0px;
-    margin: 0px 20px;
-
-`;
 const BASEURL = "https://finnhub.io/api/v1";
 const TOKEN = "bpvblknrh5rf9gg9so5g"; 
 
@@ -53,8 +48,8 @@ const StockTickerList = () => {
     const filtered = data.filter((data,i) => i < 30);
 
     return <Frame>
-        <ContainerByFour>
-            <ContainerByFourItem>
+        <Row>
+            <LayoutByFour>
                 <TabContainer>
                     <Tab title={'Asia'}>
                         <div>
@@ -82,8 +77,8 @@ const StockTickerList = () => {
                         </div>
                     </Tab>
                 </TabContainer>
-            </ContainerByFourItem>
-            <ContainerByFourItem>
+            </LayoutByFour>
+            <LayoutByFour>
                 <TabContainer>
                     <Tab title={'hello1'}>
                         <div>
@@ -101,8 +96,8 @@ const StockTickerList = () => {
                         </div>
                     </Tab>
                 </TabContainer>
-            </ContainerByFourItem>
-            <ContainerByFourItem>
+            </LayoutByFour>
+            <LayoutByFour>
                 <TabContainer>
                     <Tab title={'hello1'}>
                         <div>
@@ -120,8 +115,8 @@ const StockTickerList = () => {
                         </div>
                     </Tab>
                 </TabContainer>
-            </ContainerByFourItem>
-            <ContainerByFourItem>
+            </LayoutByFour>
+            <LayoutByFour>
                 <TabContainer>
                     <Tab title={'hello1'}>
                         <div>
@@ -139,9 +134,9 @@ const StockTickerList = () => {
                         </div>
                     </Tab>
                 </TabContainer>
-            </ContainerByFourItem>
-        </ContainerByFour>
-        <Header>Stock Market</Header>
+            </LayoutByFour>
+        </Row>
+        <HeadingOne>Stock Market</HeadingOne>
             <MarketContainer>
                 {error && 'error!'}
                 {loading && 'loading'}
@@ -149,7 +144,7 @@ const StockTickerList = () => {
                     return <StockTicker key={i} {...ticker} />
                 })}
             </MarketContainer>
-        <Header>Cryptocurrency Market</Header>
+        <HeadingOne>Cryptocurrency Market</HeadingOne>
             <MarketContainer>
                 {error && 'error!'}
                 {loading && 'loading'}
@@ -157,7 +152,7 @@ const StockTickerList = () => {
                     return <StockTicker key={i} {...ticker} />
                 })}
             </MarketContainer>
-        <Header>Forex Market</Header>
+        <HeadingOne>Forex Market</HeadingOne>
             <MarketContainer>
                 {error && 'error!'}
                 {loading && 'loading'}
