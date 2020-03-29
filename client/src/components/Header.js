@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import Searchbar from './Searchbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons'
+import { useRouter } from '../Hooks/useRouter';
 
 const Container = styled.div`   
     display: flex;
@@ -14,14 +15,11 @@ const Container = styled.div`
 `;
 
 const Item = styled.div`
-    display: flex;
+    display: block;
     padding: 10px;
-    align-items: center;
-    justify-content: center;
     height: 100%;
     color: white;
     cursor: pointer;
-    display: flex;
     :hover {
         background-color: black;
     }
@@ -38,6 +36,7 @@ const Filler = styled.div`
 
 const Header = () => {
     const session = useSelector(state => state.session);
+    const router = useRouter();
     console.log('header', session);
     if (session) {
         console.log('header', session.user.email);
@@ -45,13 +44,13 @@ const Header = () => {
 
     return <Container>
         <Item>
-            <Link to="/">E.BIT.DA</Link>
+            <div onClick={() => router.push("/")}>E.BIT.DA</div>
         </Item>
         <Item>
-            <Link to="/home">Home</Link>
+            <div onClick={() => router.push("/home")}>Home</div>
         </Item>
         <Item>
-            <Link to="/product">Products</Link>
+            <div onClick={() => router.push("/product")}>Products</div>
         </Item>
         <Item>
             <Searchbar />
@@ -63,10 +62,10 @@ const Header = () => {
             <FontAwesomeIcon icon={faBell} size="lg" />
         </Item>
         <Item>
-            <Link to="/login">{(session)? session.user.email : 'Login'}</Link>
+            <div onClick={() => router.push("/login")}>{(session)? session.user.email : 'Login'}</div>
         </Item>
         <Item>
-            <Link to="/signup">Signup</Link>
+            <div onClick={() => router.push("/signup")}>Signup</div>
         </Item>
     </Container>
 }

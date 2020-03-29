@@ -14,20 +14,25 @@ import AccountDetails from './components/AccountDetails';
 import Signup from './components/Signup';
 import SideMenu from './components/SideMenu';
 import Header from './components/Header';
-import MainBoard from './components/MainBoard';
+import MainBoard from './components/StockTickerList';
+import CompanyDetailsList from './components/CompanyDetailsList';
 import CompanyDetails from './components/CompanyDetails';
 
 // initial query
 import graphql from './graphql';
 import { useDispatch } from 'react-redux';
 import { setSession } from './store/sessionStore/session';
+import StockTickerList from './components/StockTickerList';
 
 const Container = styled.div`
-  height: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 `;
 
 const Main = styled.div`    
   display: flex;
+  flex: 1;
 `;
 
 const Left = styled.div`
@@ -35,6 +40,7 @@ const Left = styled.div`
   flex-basis: 10%;
   flex-direction: column;
   flex-grow: 1;
+  order: -1;
 `
 
 const Right = styled.div`
@@ -80,18 +86,22 @@ const App = () => {
                     </Left>
                     <Right>
                         <Switch>
-                            <Route path ="/signup">
+                            <Route path ={"/signup"}>
                                 <Signup />
                             </Route>
-                            <Route path ="/login">
+                            <Route path ={"/login"}>
                                 <AccountDetails />
                             </Route>
-                            <Route path ="/">
-                                <MainBoard />
+                            <Route path ={"/home"}>
+                                <StockTickerList />
                             </Route>
-                            <Route path ="/company">
-                                <Route path="/company/:company" component={CompanyDetails} />
+                            <Route path ={`/company`}>
+                                <CompanyDetailsList />
                             </Route>
+                            <Route path ={`/company/:companyId`}>
+                                <CompanyDetails />
+                            </Route>
+
                         </Switch>
                     </Right>
                 </Main>

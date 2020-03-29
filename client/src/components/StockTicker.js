@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useRouter } from '../Hooks/useRouter';
+import {
+    Route, Switch, Link
+  } from "react-router-dom";  
+import CompanyDetails from './CompanyDetails';
 
 const Container = styled.div`
     width: 200px;
@@ -13,14 +17,17 @@ const Container = styled.div`
     border-radius: 5px;
 `
 const Symbol = styled.div`
-    color: red;
+    color: #5f5dff;
 `;
+// onClick={() => router.push(`/company/${symbol}`)}
 
 const StockTicker = ({ description, displaySymbol, symbol }) => {
+    // console.log('match', match);
     const router = useRouter();
-    return <Container onClick={() => router.push(`/company/${symbol}`)}>
+    return <Container onClick={() => router.push(`/company/${displaySymbol}`)} >
         <div>{description}</div>
         <Symbol>{displaySymbol}</Symbol>
+        {/* <Link to={`/company/${symbol}`}>{displaySymbol}</Link> */}
     </Container>
 }
 

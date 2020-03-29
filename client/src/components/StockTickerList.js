@@ -1,15 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import {
+    Route, Switch
+  } from "react-router-dom";  
 import useFetch from 'use-http';
 import StockTicker from './StockTicker';
 import { Tab, TabContainer } from './Tabs';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route
-  } from "react-router-dom";  
 
-  
 const Frame = styled.div`
     height: 100%;
 `;
@@ -44,7 +41,7 @@ const BASEURL = "https://finnhub.io/api/v1";
 const TOKEN = "bpvblknrh5rf9gg9so5g"; 
 
 
-const MainBoard = () => {
+const StockTickerList = () => {
     const options = {
         data: []
     }
@@ -53,7 +50,7 @@ const MainBoard = () => {
     // const { loading, error, data } = useFetch(BASEURL + `/stock/symbol?exchange=US&token=${TOKEN}`, options, []);
 
     console.log('dfg', data);
-    const filtered = data.filter((data,i) => i < 50);
+    const filtered = data.filter((data,i) => i < 30);
 
     return <Frame>
         <ContainerByFour>
@@ -171,4 +168,4 @@ const MainBoard = () => {
     </Frame>
 }
 
-export default MainBoard;
+export default StockTickerList;

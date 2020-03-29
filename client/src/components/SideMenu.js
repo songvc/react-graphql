@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faNewspaper, faWallet, faStore, faComments } from '@fortawesome/free-solid-svg-icons'
+import { useRouter } from '../Hooks/useRouter';
 
 const Container = styled.div`
     background-color: #222222;
     height: 100%;
 `;
+
 const Items = styled.div`
     background-color: #222222;
     color: white;
@@ -13,24 +17,47 @@ const Items = styled.div`
     align-items: center;
     justify-content: center;
     margin: 5px 0px;
-    padding: 5px 0px;
+    padding: 10px 0px;
+    cursor: pointer;
 `;
+
+const IconContainer = styled.div`
+    margin-right: 5px;
+`;
+
 const SideMenu = () => {
+    const router = useRouter();
+
     return <Container>
         <Items>
-            <Link to="/">hello</Link>
+            <IconContainer>
+                <FontAwesomeIcon icon={faHome} size="md" />
+            </IconContainer>
+            <div>Home</div>
         </Items>
         <Items>
-            <Link to="/">hello</Link>
+            <IconContainer>
+                <FontAwesomeIcon icon={faNewspaper} size="md" />    
+            </IconContainer>
+            <div>News</div>
         </Items>
         <Items>
-            <Link to="/">hello</Link>
+            <IconContainer>
+                <FontAwesomeIcon icon={faWallet} size="md" />    
+            </IconContainer>
+            <div>Watch</div>
         </Items>
         <Items>
-            <Link to="/">hello</Link>
+            <IconContainer>
+                <FontAwesomeIcon icon={faStore} size="md" />    
+            </IconContainer>
+            <div>Store</div>
         </Items>
         <Items>
-            <Link to="/">hello</Link>
+            <IconContainer>
+                <FontAwesomeIcon icon={faComments} size="md" />    
+            </IconContainer>
+            <div>Forum</div>
         </Items>
     </Container>
 }
