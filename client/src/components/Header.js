@@ -58,11 +58,11 @@ const Header = () => {
     }
 
     return <Container>
-        <Item>
+        <Item onClick={() => router.push("/home")}>
             {/* <div>
                 <FontAwesomeIcon icon={faGlobe} size="lg" />
             </div> */}
-            <div onClick={() => router.push("/home")}>E.BIT.DA</div>
+            <div>E.BIT.DA</div>
         </Item>
         {/* <Item>
             <div onClick={() => router.push("/home")}>Home</div>
@@ -80,11 +80,11 @@ const Header = () => {
             <Red />
             <FontAwesomeIcon icon={faBell} size="lg" />
         </Item>
-        <Item>
-            <div onClick={() => router.push("/login")}>{(session)? session.user.email : 'Login'}</div>
+        <Item onClick={() => router.push("/login")}>
+            <div>{(session)? session.user.email : 'Login'}</div>
         </Item>
-        <Item>
-            <div onClick={() => router.push("/signup")}>Sign up</div>
+        <Item onClick={() => router.push("/signup")}>
+            <div>Sign up</div>
         </Item>
     </Container>
 }

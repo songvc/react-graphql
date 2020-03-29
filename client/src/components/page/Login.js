@@ -4,15 +4,35 @@ import { useMutation } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import Input from '../Input';
 import Button from '../Button';
+import { Link } from 'react-router-dom';
 
 const Frame = styled.div`
     margin: 15px;
     height: 100vh;
 `;
 
+const Container = styled.div`
+    margin : 15px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: .28571429rem;
+    border: 1px solid rgba(34,36,38,.15);
+`;
+
 const Label = styled.label`
     display: block;
 `; 
+
+const Links = styled.a`
+    display: inline-block;
+    color: blue;
+    width: 100px;
+`;
 
 const mutation = gql`
     mutation($email: String!, $password: String!) {
@@ -25,7 +45,6 @@ const mutation = gql`
         }
     }
 `;
-
 
 const Login = () => {
     const [ name, setName ] = useState('');
@@ -53,15 +72,20 @@ const Login = () => {
 
 
     return <Frame>
-        <div>Login</div>
-        <div></div>
-        <form onSubmit={handleSubmit}>
-            <Label>Email</Label>
-            <Input type='text' value={name} onChange={handleNameChange} />
-            <Label>Password</Label>
-            <Input type='password' value={pw} onChange={handlePWChange} />
-            <Button>Submit</Button> 
-        </form>
+        <Container>
+            <div>Login</div>
+            <div></div>
+            <form onSubmit={handleSubmit}>
+                <div>Welcome to ddd</div>
+                <div>Don't have an account yet? <Links href='/signup'>Sign up.</Links> </div>
+                <Label>Email</Label>
+                <Input type='text' value={name} onChange={handleNameChange} />
+                <Label>Password</Label>
+                <Input type='password' value={pw} onChange={handlePWChange} />
+                <Button>Login</Button> 
+                <div>Forgot your password? <Links href='/home'>Reset here.</Links> </div>
+            </form>
+        </Container>
     </Frame>
 }
 

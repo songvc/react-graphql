@@ -21,10 +21,7 @@ const TabHeaderItem = styled.div`
     color: black;
     background-color: ${props => props.isSelected? " #5f5dff": "white"}
 `; 
-// color: ${props => props.isSelected? "white": "black"}
-// :hover {
-//     background-color: #5f5dff;
-// }
+
 const TabBody =  styled.div`
     display:block;
     margin: 15px;
@@ -61,7 +58,7 @@ export const Tab = ({ children }) => {
     </TabStyle>
 }
 
-{/* <TabContainer defaultTab={0} tabList={[1,2,3]}>
+{/* <TabContainer>
     <Tab title={hello1}>ff</Tab>
     <Tab title={hello2}>ff</Tab>
     <Tab title={hello3}>ff</Tab>
