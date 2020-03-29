@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import styled from 'styled-components';
 import Button from '../Button';
 import Input from '../Input';
-import { checkDocument } from 'apollo-utilities';
-import { faShekelSign } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 
 const Frame = styled.div`
     margin: 15px;
@@ -29,15 +29,13 @@ const Label = styled.label`
     display: block;
 `;  
 
-// const Input = styled.input`
-//     margin: 10px 0px;
-//     width: 200px;
-//     height: 30px;
-//     display: block;
-//     :focus {
-//         outline: none;
-//     }
-// `;
+const InputContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 250px;
+`;
+
 
 const mutation = gql`
     mutation($email: String!, $password: String!) {
@@ -48,50 +46,66 @@ const mutation = gql`
 `;
 
 
+
 const Signup = () => {
     const [ name, setName ] = useState('');
     const [ pw, setPw ] = useState('');
     const [ pwcheck, setPwcheck ] = useState('');
+    const [ isNameValidated, setIsNameValidated ] = useState(false);
+    const [ isPWValidated, setIsPWValidated ] = useState(false);
     const [ disabled, setDisabled] = useState(true);
     const [ createUser ] = useMutation(mutation);
 
-    const emailValidation = () => {
-        return true;
+    const checkValidation = () => {
+        console.log('checking validation');
+        console.log('pw validation result', pwValidation());
+
+        if (emailValidation() && pwValidation()) {
+            setDisabled(false);
+        } else {
+            setDisabled(true);
+        }
     }
 
-    const pwValidation = () => {
-        if (pwcheck.length > 0 && pw.length > 0 && pwcheck === pw) {
+    const emailValidation = () => {
+        if (name.length > 0) {
+            setIsNameValidated(true);
             return true;
         } else {
+            setIsNameValidated(false);
             return false;
         }
     }
+    
+    const pwValidation = () => {
+        console.log('current pwcheck', pwcheck)
+        console.log('current pw', pw)
+        console.log('pw === pwcheck', pw === pwcheck);
 
-    const checkValidation = () => {
-        console.log('checking validation');
-        if (emailValidation() && pwValidation()) {
-            setDisabled(false);
+        if (pwcheck.length > 0 && pw.length > 0 && pwcheck === pw) {
+            setIsPWValidated(true);
+            return true;
+        } else {
+            setIsPWValidated(false);
+            return false;
         }
     }
-
+    
     const handleName = (e) => {
-        console.log('fe');
-        console.log('e', e.target.value);
-        checkValidation();
         setName(e.target.value);    
     }
 
     const handlePW = (e) => {
-        console.log('fe');
-        checkValidation();
         setPw(e.target.value); 
     } 
 
     const handlePWCheck = (e) => {
-        console.log('fe');
-        checkValidation();
         setPwcheck(e.target.value); 
     } 
+
+    useEffect(() => {
+        checkValidation();
+    }, [name, pw, pwcheck])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -121,11 +135,20 @@ const Signup = () => {
             <div>Sign Up</div>
             <form onSubmit={handleSubmit}>
                 <Label>Email</Label>
-                <Input type='text' value={name} onChange={handleName}/> 
+                <InputContainer>
+                    <Input type='text' value={name} onChange={handleName}/> 
+                    {isNameValidated? <FontAwesomeIcon color={"green"} icon={faCheckCircle} size="sm" />: <div></div>}
+                </InputContainer>
                 <Label>New Password</Label>
-                <Input type='text' value={pw} onChange={handlePW}/> 
+                <InputContainer>
+                    <Input type='text' value={pw} onChange={handlePW}/> 
+                    {isPWValidated? <FontAwesomeIcon color={"green"} icon={faCheckCircle} size="sm" />: <div></div>}
+                </InputContainer>
                 <Label>New Password Check</Label>
-                <Input type='text' value={pwcheck} onChange={handlePWCheck}/> 
+                <InputContainer>
+                    <Input type='text' value={pwcheck} onChange={handlePWCheck}/> 
+                    {isPWValidated? <FontAwesomeIcon color={"green"} icon={faCheckCircle} size="sm" />: <div></div>}
+                </InputContainer>
                 <Button disabled={disabled}>Sign Up</Button>
                 <Button onClick={handleCancel}>Cancel</Button>
             </form>    

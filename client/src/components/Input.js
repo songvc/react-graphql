@@ -15,7 +15,8 @@ const Inputs = styled.input`
     }
 `;
 
-const Input = ({ props }) => {
+const Input = (props) => {
+    // console.log('input props', props);
     return <Inputs {...props} /> 
 }
 export default Input;
