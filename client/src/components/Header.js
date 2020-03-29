@@ -23,11 +23,12 @@ const Item = styled.div`
     height: 100%;
     color: white;
     cursor: pointer;
-    :hover {
-        background-color: black;
-    }
-
 `;
+
+// :hover {
+//     background-color: black;
+// }
+
 
 const Red = styled.div`
     position: absolute;

@@ -73,10 +73,9 @@ const Login = () => {
 
     return <Frame>
         <Container>
-            <div>Login</div>
             <div></div>
             <form onSubmit={handleSubmit}>
-                <div>Welcome to ddd</div>
+                <div>Welcome to E.BIT.DA</div>
                 <div>Don't have an account yet? <Links href='/signup'>Sign up.</Links> </div>
                 <Label>Email</Label>
                 <Input type='text' value={name} onChange={handleNameChange} />

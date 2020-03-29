@@ -31,9 +31,6 @@ const GlobalStyle = createGlobalStyle`
         height: 100%;
     }
 `
-// display: flex;
-// align-items: center;
-// justify-content: center;    
 
 console.log('s', store);
 

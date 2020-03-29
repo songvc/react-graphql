@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import styledProps from 'styled-props';
+import { darken } from 'polished';
 
 const Label = styled.label`
     display: block;
@@ -12,24 +14,18 @@ const Inputs = styled.input`
     display: block;
     border-radius: .28571429rem;
     border: 1px solid rgba(34,36,38,.15);
-
+    padding: 0px 5px;
     :focus {
-        outline: none;
+        color: #495057;
+        background: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
     }
 `;
 
-// width: 150px;
-// height: 30px;
-// border: 1px solid rgba(34,36,38,.15);
-// margin-right: 5px;
-// color: rgba(0,0,0,.87);
-// border-radius: .28571429rem;
-// :focus {
-//     outline: none;
-// }
-
 const Input = (props) => {
-    // console.log('input props', props);
     return <Inputs {...props} /> 
 }
+
 export default Input;

@@ -150,7 +150,7 @@ const Signup = () => {
                     {isPWValidated? <FontAwesomeIcon color={"green"} icon={faCheckCircle} size="lg" />: <div></div>}
                 </InputContainer>
                 <Button disabled={disabled}>Sign Up</Button>
-                <Button onClick={handleCancel}>Cancel</Button>
+                <Button info onClick={handleCancel}>Cancel</Button>
             </form>    
         </Container>
     </Frame>

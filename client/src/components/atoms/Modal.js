@@ -18,8 +18,13 @@ const ModalFooter = styled.div`
     display: block;
 `; 
 
-const Modal = () => {
-    return <div></div>
+const Modal = ({ children, props}) => {
+    
+    return <ModalWrapper>
+        <div>
+            hello
+        </div>
+    </ModalWrapper>
 }
 
 export default Modal;
