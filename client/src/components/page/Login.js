@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useMutation } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
-import Input from '../Input';
-import Button from '../Button';
+import Input from '../atoms/Input';
+import Button from '../atoms/Button';
 import { Link } from 'react-router-dom';
 
 const Frame = styled.div`

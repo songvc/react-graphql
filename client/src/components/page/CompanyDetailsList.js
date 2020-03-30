@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import CompanyDetails from '../CompanyDetails';
-import { HeadingOne } from '../Headings';
+import { HeadingOne } from '../atoms/Headings';
 
 const Frame = styled.div`
     height: 100%;

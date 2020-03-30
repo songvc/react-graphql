@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Button from './Button';
-import Input from './Input';
+import Button from './atoms/Button';
+import Input from './atoms/Input';
 
 const Container = styled.div`
     display: flex;

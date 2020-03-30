@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import useFetch from 'use-http';
-import { Tab, TabContainer } from './Tabs';
+import { Tab, TabContainer } from './atoms/Tabs';
 import { getDataFromTree } from 'react-apollo';
 const LOGURL = "";
 

@@ -17,6 +17,7 @@ import Header from './components/Header';
 import MainBoard from './components/page/StockTickerList';
 import CompanyDetailsList from './components/page/CompanyDetailsList';
 import CompanyDetails from './components/CompanyDetails';
+import Modal from './components/atoms/Modal';
 
 // initial query
 import graphql from './graphql';
@@ -100,6 +101,9 @@ const App = () => {
                             </Route>
                             <Route path ={`/company/:companyId`}>
                                 <CompanyDetails />
+                            </Route>
+                            <Route path ={`/modal`}>
+                                <Modal />
                             </Route>
 
                         </Switch>

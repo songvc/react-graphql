@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import styled from 'styled-components';
-import Button from '../Button';
-import Input from '../Input';
+import Button from '../atoms/Button';
+import Input from '../atoms/Input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 
